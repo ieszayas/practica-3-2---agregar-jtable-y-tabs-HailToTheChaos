@@ -80,4 +80,11 @@ public class Usuario {
         return info;
     }
 
+    @Override
+    public String toString() {
+        return "Usuario{" + "usuario=" + usuario + ", contrase\u00f1a=" + contraseña + ", nombre=" + nombre + ", apellido=" + apellido + ", fecha_nac=" + fecha_nac + ", correo=" + correo + '}';
+    }
+    
+    
+
 }

@@ -35,7 +35,7 @@ public class BaseDatos {
                     ps2.setString(1, usuario);
                     ps2.setString(2, user.getNombre());
                     ps2.setString(3, user.getApellido());
-                    ps2.setString(4, user.getFecha_nac());                    
+                    ps2.setString(4, user.getFecha_nac());
                     ps2.setString(5, user.getCorreo());
 
                     ps2.executeUpdate();
@@ -44,7 +44,7 @@ public class BaseDatos {
                 ps.close();
                 conexion.close();
 
-            } catch (SQLException ex) {                
+            } catch (SQLException ex) {
                 return false;
             }
         }
@@ -103,4 +103,22 @@ public class BaseDatos {
         }
         return false;
     }
+
+    public static ResultSet consultaUsuarios() {
+
+        if (conectar()) {
+            try {
+                Statement s = conexion.createStatement();
+                ResultSet rs = s.executeQuery("select NOMBRE, APELLIDOS, FECHA, CORREO from APP.INFORMACION");
+
+                return rs;
+
+            } catch (SQLException ex) {
+                return null;
+            }
+        }
+        return null;
+    }
+
+    
 }
