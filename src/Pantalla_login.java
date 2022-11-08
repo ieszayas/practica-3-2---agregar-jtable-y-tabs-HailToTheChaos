@@ -90,6 +90,9 @@ public class Pantalla_login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         table_usuarios = new javax.swing.JTable();
+        jToolBar1 = new javax.swing.JToolBar();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
         menuItem_guardar = new javax.swing.JMenuItem();
@@ -601,11 +604,11 @@ public class Pantalla_login extends javax.swing.JFrame {
         etiqueta_bienvenido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         etiqueta_bienvenido.setText("Bienvenid@");
         panel_principal.add(etiqueta_bienvenido);
-        etiqueta_bienvenido.setBounds(10, 50, 210, 30);
+        etiqueta_bienvenido.setBounds(10, 80, 210, 30);
 
         label_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/icono.png"))); // NOI18N
         panel_principal.add(label_logo);
-        label_logo.setBounds(90, 100, 60, 60);
+        label_logo.setBounds(90, 130, 60, 60);
 
         etiqueta_info.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         etiqueta_info.setForeground(new java.awt.Color(255, 255, 255));
@@ -613,7 +616,7 @@ public class Pantalla_login extends javax.swing.JFrame {
         etiqueta_info.setText("El usuario  está logueado");
         etiqueta_info.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panel_principal.add(etiqueta_info);
-        etiqueta_info.setBounds(10, 270, 220, 60);
+        etiqueta_info.setBounds(0, 300, 240, 60);
 
         panel_Botones.setBackground(new java.awt.Color(33, 36, 41));
         panel_Botones.setOpaque(false);
@@ -662,7 +665,7 @@ public class Pantalla_login extends javax.swing.JFrame {
         );
 
         panel_principal.add(panel_Botones);
-        panel_Botones.setBounds(10, 330, 210, 120);
+        panel_Botones.setBounds(10, 360, 210, 120);
 
         jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -681,10 +684,7 @@ public class Pantalla_login extends javax.swing.JFrame {
         table_usuarios.setForeground(new java.awt.Color(255, 255, 255));
         table_usuarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nombre", "Apellidos", "Fecha de nacimiento", "Correo"
@@ -714,15 +714,43 @@ public class Pantalla_login extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 2, Short.MAX_VALUE))
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 339, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Tabla", jPanel1);
 
         panel_principal.add(jTabbedPane1);
-        jTabbedPane1.setBounds(240, 60, 490, 400);
+        jTabbedPane1.setBounds(240, 90, 490, 370);
+
+        jToolBar1.setRollover(true);
+        jToolBar1.setOpaque(false);
+
+        jButton1.setBackground(new java.awt.Color(33, 36, 41));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/folder.png"))); // NOI18N
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
+
+        jButton2.setBackground(new java.awt.Color(33, 36, 41));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/media/folder (1).png"))); // NOI18N
+        jButton2.setFocusable(false);
+        jButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton2);
+
+        panel_principal.add(jToolBar1);
+        jToolBar1.setBounds(10, 40, 740, 40);
 
         jMenuBar1.setBackground(new java.awt.Color(51, 51, 51));
         jMenuBar1.setBorder(null);
@@ -779,7 +807,7 @@ public class Pantalla_login extends javax.swing.JFrame {
         );
         frame_principalLayout.setVerticalGroup(
             frame_principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panel_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 483, Short.MAX_VALUE)
+            .addComponent(panel_principal, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1188,12 +1216,12 @@ public class Pantalla_login extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItem_abrirActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = (DefaultTableModel)table_usuarios.getModel();
        
-       modelo.addColumn("Nombre");
-       modelo.addColumn("Apellidos");
-       modelo.addColumn("Fecha de nacimiento");
-       modelo.addColumn("Correo");
+//       modelo.addColumn("Nombre");
+//       modelo.addColumn("Apellidos");
+//       modelo.addColumn("Fecha de nacimiento");
+//       modelo.addColumn("Correo");
        
         try {
             ResultSet rs = BaseDatos.consultaUsuarios();
@@ -1219,6 +1247,45 @@ public class Pantalla_login extends javax.swing.JFrame {
     private void table_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_usuariosMouseClicked
        
     }//GEN-LAST:event_table_usuariosMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JFileChooser fchooser = new JFileChooser();
+        frame_principal.setVisible(false);
+        fchooser.setVisible(true);
+        int seleccion = fchooser.showOpenDialog(fchooser);
+        boolean append = false;
+        String entrada = textArea_principal.getText();
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File fichero = new File(fchooser.getSelectedFile().getPath() + ".txt");
+            if (fichero.exists()) {
+                int dialogButton = JOptionPane.showConfirmDialog(null, "El fichero ya existe,¿desea sobreescribirlo?", "WARNING", JOptionPane.YES_NO_OPTION);
+                if (dialogButton == JOptionPane.NO_OPTION) {
+                    append = true;
+                }
+            }
+            Metodos.guardarEnFichero(entrada, fichero, append);
+        }
+        frame_principal.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         JFileChooser fchooser = new JFileChooser();
+        fchooser.setAcceptAllFileFilterUsed(false);
+        fchooser.addChoosableFileFilter(new FileNameExtensionFilter("TXT Documents", "txt"));
+
+        frame_principal.setVisible(false);
+        fchooser.setVisible(true);
+        int seleccion = fchooser.showOpenDialog(fchooser);
+
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            File fichero = new File(fchooser.getSelectedFile().getPath());
+            if (fichero.exists()) {
+                textArea_principal.setText(Metodos.leerFichero(fichero));
+            }
+        }
+        frame_principal.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private boolean verificaciones() {
         String usuario = textField_agregarUsuario.getText();
@@ -1353,6 +1420,8 @@ public class Pantalla_login extends javax.swing.JFrame {
     private javax.swing.JFrame frame_agregar;
     private javax.swing.JFrame frame_cambiarContra;
     private javax.swing.JFrame frame_principal;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1370,6 +1439,7 @@ public class Pantalla_login extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel label_instrucciones;
     private javax.swing.JLabel label_logo;
     private javax.swing.JLabel label_passwd;
